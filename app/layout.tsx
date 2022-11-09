@@ -1,3 +1,5 @@
+import '../styles/globals.css'
+
 import ReactQueryWrapper from "./ReactQueryWrapper";
 
 type Props = {
