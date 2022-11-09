@@ -9,7 +9,9 @@ type Props = {
 const RootLayout = ({ children }: Props) => {
   return (
     <html>
-      <head></head>
+      <head>
+        <meta name='viewport' content='device-width, initial-scale=1.0' />
+      </head>
       <body>
         <ReactQueryWrapper>{children}</ReactQueryWrapper>
       </body>

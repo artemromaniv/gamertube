@@ -13,6 +13,14 @@
   align-items: center;
 }
 
+.search_desktop {
+  display: block;
+}
+
+.search_mobile {
+  display: none;
+}
+
 .hero {
   display: flex;
   justify-content: space-between;
@@ -20,7 +28,7 @@
 
 .hero_text {
   font-weight: bolder;
-  font-size: 96px;
+  font-size: 6rem;
 }
 
 .browse {
@@ -31,4 +39,27 @@
 
 .browse_card {
   background-color: brown;
+}
+
+@media (max-width: 400px) {
+  .wrapper {
+    padding:2.5rem 1rem;
+  }
+
+  .search_desktop{
+    display: none;
+  }
+
+  .search_mobile {
+    display: block;
+  }
+
+  .hero_text {
+    font-weight: bolder;
+    font-size: 2rem;
+  }
+  .browse {
+    grid-template-columns: 1fr 1fr;
+  }
+
 }
