@@ -17,3 +17,25 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.logo {
+  align-items: center;
+}
+
+.search_desktop {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .search_desktop{
+    display: none;
+  }
+
+}
