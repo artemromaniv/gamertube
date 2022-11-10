@@ -1,0 +1,10 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.image {
+    max-width: 100%;
+    object-fit: cover;
+}

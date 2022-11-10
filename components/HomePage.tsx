@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 
 import Search from "./Search";
 import BrowseSection from "./BrowseSection";
+import NewAndTrending from "./NewAndTrending";
 const HomePage = () => {
   return (
     <main className={styles.wrapper}>
@@ -19,6 +20,8 @@ const HomePage = () => {
         <Search />
       </section>
       <BrowseSection/>
+      <h2>New and Trending</h2>
+      <NewAndTrending/>
     </main>
   );
 };

@@ -7,7 +7,6 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: black;
   min-height: 100vh;
-  overflow: hidden;
   padding: 22px 48px;
 }
 
@@ -33,6 +32,14 @@ a {
 
 .search_desktop {
   display: block;
+}
+
+.nav_container {
+  display: flex;
+  align-items: center;
+  gap: 65px;
+  color: white;
+  font-weight: bold;
 }
 
 @media (max-width: 600px) {
