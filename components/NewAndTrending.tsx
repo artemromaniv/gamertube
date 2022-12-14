@@ -8,7 +8,11 @@ const NewAndTrending = () => {
     fetchGamesData("games")
   );
   !error ? console.log(data) : console.log(error);
-  return <section className={styles.container}></section>;
+  return <section className={styles.container}>
+    {/* <pre>
+      {JSON.stringify(data?.results,null,4)}
+    </pre> */}
+  </section>;
 };
 
 export default NewAndTrending;
