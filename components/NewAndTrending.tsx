@@ -3,27 +3,29 @@ import styles from "../styles/NewAndTrending.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { fetchGamesData } from "../api/fetchGamesData";
 import GameCard from "./GameCard";
-import Ghostsong from "../assets/GhostSong.jpg";
+type GameProps = {
+  results: {
+    id: string;
+    name: string;
+    background_image: string;
+  }[];
+};
+
 const NewAndTrending = () => {
-  const { data, isLoading, error } = useQuery(["trending"], () =>
-    fetchGamesData("games")
+  const { data, isLoading, error } = useQuery<GameProps >(
+    ["trending"],
+    () => fetchGamesData("games"),
+    { staleTime: Infinity }
   );
-  !error ? console.log(data) : console.log(error);
+
+  const GamesList = data?.results?.map((game) => (
+    <GameCard image={game.background_image} alt = {game.name} />
+  ))
+
   return (
     <section className={styles.container}>
-      <GameCard image = {Ghostsong} alt="test" />
-      <GameCard image = {Ghostsong} alt="test" />
-      <GameCard image = {Ghostsong} alt="test" />
-
-      <GameCard image = {Ghostsong} alt="test" />
-
-      <GameCard image = {Ghostsong} alt="test" />
-
-      <GameCard image = {Ghostsong} alt="test" />
-
-      {/* <pre>
-      {JSON.stringify(data?.results,null,4)}
-    </pre> */}
+      {GamesList}
+      {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
     </section>
   );
 };

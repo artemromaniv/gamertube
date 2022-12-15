@@ -4,7 +4,7 @@ const nextConfig = {
   swcMinify: true,
   experimental: { appDir: true },
   images:{
-    domains:["cdn.cloudflare.steamstatic.com"]
+    domains:["cdn.cloudflare.steamstatic.com","media.rawg.io"]
   }
 }
 
