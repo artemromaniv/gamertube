@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: black;
   min-height: 100vh;
   padding: 22px 48px;
@@ -25,7 +25,6 @@ a {
   justify-content: space-between;
 }
 
-
 .logo {
   align-items: center;
 }
@@ -43,13 +42,12 @@ a {
 }
 
 @media (max-width: 600px) {
-
-  html,body {
-    padding:24px 5px;
+  html,
+  body {
+    padding: 24px 5px;
   }
 
-  .search_desktop{
+  .search_desktop {
     display: none;
   }
-
 }

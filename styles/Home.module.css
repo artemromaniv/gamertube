@@ -1,10 +1,6 @@
 .wrapper {
-  
   color: white;
 }
-
-
-
 
 .search_mobile {
   display: none;
@@ -20,11 +16,7 @@
   font-size: 6rem;
 }
 
-
-
 @media (max-width: 600px) {
-
-
   .search_mobile {
     display: block;
   }
@@ -33,6 +25,4 @@
     font-weight: bolder;
     font-size: 2rem;
   }
-
-
 }

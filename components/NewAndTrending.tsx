@@ -12,15 +12,15 @@ type GameProps = {
 };
 
 const NewAndTrending = () => {
-  const { data, isLoading, error } = useQuery<GameProps >(
+  const { data, isLoading, error } = useQuery<GameProps>(
     ["trending"],
     () => fetchGamesData("games"),
     { staleTime: Infinity }
   );
 
   const GamesList = data?.results?.map((game) => (
-    <GameCard image={game.background_image} alt = {game.name} />
-  ))
+    <GameCard image={game.background_image} alt={game.name} key={game.id} />
+  ));
 
   return (
     <section className={styles.container}>

@@ -19,9 +19,9 @@ const HomePage = () => {
       <section className={styles.search_mobile}>
         <Search />
       </section>
-      <BrowseSection/>
+      <BrowseSection />
       <h2>New and Trending</h2>
-      <NewAndTrending/>
+      <NewAndTrending />
     </main>
   );
 };

@@ -3,9 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   experimental: { appDir: true },
-  images:{
-    domains:["cdn.cloudflare.steamstatic.com","media.rawg.io"]
-  }
-}
+  images: {
+    domains: ["cdn.cloudflare.steamstatic.com", "media.rawg.io"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
