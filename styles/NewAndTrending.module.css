@@ -1,11 +1,23 @@
+
 .container {
     display: grid;
+    align-content: center;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
 }
 
-.image {
-    max-width: 100%;
+.game_card {
+    background-color: #180D18;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.game_poster_container {
+    position: relative;
+}
+.game_poster {
+    width: 100%;
     object-fit: cover;
 }
 
