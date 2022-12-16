@@ -12,7 +12,7 @@ const GameCard = ({ image, alt }: Props) => {
   return (
     <div className={styles.game_card}>
       <div className={styles.game_poster_container}>
-        <Image src={image} alt="" fill className={styles.game_poster} />
+        <Image src={image} alt="" fill sizes="100%" className={styles.game_poster} />
       </div>
       <div>
         <span>{alt}</span>

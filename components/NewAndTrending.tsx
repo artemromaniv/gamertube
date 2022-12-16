@@ -3,6 +3,7 @@ import styles from "../styles/NewAndTrending.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { fetchGamesData } from "../api/fetchGamesData";
 import GameCard from "./GameCard";
+
 type GameProps = {
   results: {
     id: string;
@@ -11,10 +12,15 @@ type GameProps = {
   }[];
 };
 
+const dateObj = new Date()
+const currentDate = dateObj.toISOString().slice(0, 10)
+const prevDate = dateObj.setMonth(dateObj.getMonth() - 3)
+console.log(prevDate);
+
 const NewAndTrending = () => {
   const { data, isLoading, error } = useQuery<GameProps>(
     ["trending"],
-    () => fetchGamesData("games"),
+    () => fetchGamesData("games",`2022-08-01,${currentDate}`),
     { staleTime: Infinity }
   );
 
