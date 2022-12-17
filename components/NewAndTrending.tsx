@@ -9,31 +9,54 @@ type GameProps = {
     id: string;
     name: string;
     background_image: string;
+    platforms: {
+      platform: {
+        id: number;
+        name: string;
+        slug: string;
+      };
+    }[];
+    genres: {
+      id: number;
+      name: string;
+      slug: string;
+    }[];
   }[];
 };
 
-const dateObj = new Date()
-const currentDate = dateObj.toISOString().slice(0, 10)
-const prevDate = dateObj.setMonth(dateObj.getMonth() - 3)
+const dateObj = new Date();
+const currentDate = dateObj.toISOString().slice(0, 10);
+const prevDate = dateObj.setMonth(dateObj.getMonth() - 3);
 console.log(prevDate);
 
 const NewAndTrending = () => {
   const { data, isLoading, error } = useQuery<GameProps>(
     ["trending"],
-    () => fetchGamesData("games",`2022-08-01,${currentDate}`),
+    () => fetchGamesData("games", `2022-08-01,${currentDate}`),
     { staleTime: Infinity }
   );
 
+  console.log(data?.results);
+
   const GamesList = data?.results?.map((game) => (
-    <GameCard image={game.background_image} alt={game.name} key={game.id} />
+    <GameCard
+      image={game.background_image}
+      alt={game.name}
+      name={game.name}
+      key={game.id}
+      genres = {game.genres}
+    />
   ));
 
-  return (
-    <section className={styles.container}>
-      {GamesList}
-      {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
-    </section>
-  );
+  if (error) {
+    return <div>Failed to load games data :( </div>;
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  return <section className={styles.container}>{GamesList}</section>;
 };
 
 export default NewAndTrending;

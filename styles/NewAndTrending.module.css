@@ -16,7 +16,7 @@
 }
 
 .game_card:hover {
-  border: pink;
+  border: 1px solid pink;
 }
 
 .game_poster_container {
@@ -26,6 +26,35 @@
 .game_poster {
   width: 100%;
   object-fit: cover;
+}
+
+.game_poster_info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.game_poster_name {
+  font-weight: 900;
+  font-size: larger;
+}
+
+.genres_container {
+  display: flex;
+  gap: 8px;
+}
+
+.genre_badge {
+  font-size: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #180d18;
+  border-radius: 24px;
+  background: white;
+  padding-inline: 8px;
+  padding-block: 4px;
 }
 
 @media (max-width: 600px) {
