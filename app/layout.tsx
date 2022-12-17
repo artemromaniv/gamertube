@@ -17,7 +17,7 @@ const RootLayout = ({ children }: Props) => {
       <body>
         <header className="header">
           <Link href={"/"}>
-            <Image src={Logo} alt="" className="logo" />
+            {/* <Image src={Logo} alt="" className="logo" /> */}
           </Link>
 
           <nav className="nav_container">

@@ -6,7 +6,7 @@ import GameCard from "./GameCard";
 
 type GameProps = {
   results: {
-    id: string;
+    id: number;
     name: string;
     background_image: string;
     platforms: {
@@ -43,9 +43,10 @@ const NewAndTrending = () => {
       image={game.background_image}
       alt={game.name}
       name={game.name}
-      key={game.id}
       genres = {game.genres}
-    />
+      id = {game.id}
+      key={game.id}
+      />
   ));
 
   if (error) {

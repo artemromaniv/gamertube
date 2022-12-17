@@ -1,8 +1,10 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+import Link from "next/link"; 
 
 import styles from "../styles/NewAndTrending.module.css";
 
 type Props = {
+  id:number
   name: string;
   image: string;
   alt: string;
@@ -13,9 +15,9 @@ type Props = {
   }[];
 };
 
-const GameCard = ({ image, alt, name,genres }: Props) => {
+const GameCard = ({ image, alt, name,genres, id }: Props) => {
   return (
-    <div className={styles.game_card}>
+    <Link href={`${id}`} className={styles.game_card}>
       <div className={styles.game_poster_container}>
         <Image
           src={image}
@@ -33,7 +35,7 @@ const GameCard = ({ image, alt, name,genres }: Props) => {
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
