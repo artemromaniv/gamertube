@@ -3,6 +3,7 @@ import styles from "../styles/NewAndTrending.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { fetchGamesData } from "../api/fetchGamesData";
 import GameCard from "./GameCard";
+import Loader from "./Loader";
 
 type GameProps = {
   results: {
@@ -54,7 +55,7 @@ const NewAndTrending = () => {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader/>;
   }
 
   return <section className={styles.container}>{GamesList}</section>;
