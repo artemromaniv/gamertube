@@ -1,13 +1,8 @@
 import Link from "next/link";
 import styles from "../styles/Browse.module.css";
-type Props = {
-  link: string;
-  image: string;
-  icon: React.ReactNode;
-  category: string;
-};
+import { BrowseCardProps } from "../types/BrowseCard";
 
-const BrowseCard = ({ link, image, icon, category }: Props) => {
+const BrowseCard = ({ link, image, icon, category }: BrowseCardProps) => {
   return (
     <Link
       href={link}

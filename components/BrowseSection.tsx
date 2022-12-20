@@ -1,8 +1,6 @@
 import Link from "next/link";
 import styles from "../styles/Browse.module.css";
 import { Award } from "react-feather";
-
-import HollowKnight from "../assets/HollowKnight.jpg";
 import BrowseCard from "./BrowseCard";
 const BrowseSection = () => {
   return (

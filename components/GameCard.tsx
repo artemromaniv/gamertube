@@ -1,21 +1,10 @@
 import Image from "next/image";
 import Link from "next/link"; 
-
+import { GameInfoProps } from "../types/GameInfoProps";
 import styles from "../styles/NewAndTrending.module.css";
 
-type Props = {
-  id:number
-  name: string;
-  image: string;
-  alt: string;
-  genres?: {
-    id: number;
-    name: string;
-    slug: string;
-  }[];
-};
 
-const GameCard = ({ image, alt, name,genres, id }: Props) => {
+const GameCard = ({ image,name,genres, id }: GameInfoProps) => {
   return (
     <Link href={`${id}`} className={styles.game_card}>
       <div className={styles.game_poster_container}>
