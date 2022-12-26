@@ -5,20 +5,22 @@ import { fetchGamesData } from "../api/fetchGamesData";
 import GameCard from "./GameCard";
 import Loader from "./Loader";
 import { GamesListProps } from "../types/GamesList";
+import Error from "./Error";
+import { prevDate, currentDate } from "../utils/formattedDate";
 
-const dateObj = new Date();
-const currentDate = dateObj.toISOString().slice(0, 10);
-const prevDate = dateObj.setMonth(dateObj.getMonth() - 3);
-console.log(prevDate);
+console.log("prev",prevDate);
+console.log("current",currentDate);
+
+
 
 const NewAndTrending = () => {
   const { data, isLoading, error } = useQuery<GamesListProps>(
     ["trending"],
-    () => fetchGamesData("games", `2022-08-01,${currentDate}`),
+    () => fetchGamesData("games", `${prevDate},${currentDate}`),
     { staleTime: Infinity }
   );
 
-  console.log(data?.results);
+
 
   const GamesList = data?.results?.map((game) => (
     <GameCard
@@ -32,7 +34,7 @@ const NewAndTrending = () => {
   ));
 
   if (error) {
-    return <div>Failed to load games data :( </div>;
+    return <Error/>;
   }
 
   if (isLoading) {

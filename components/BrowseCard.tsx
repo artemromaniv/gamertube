@@ -8,7 +8,7 @@ const BrowseCard = ({ link, image, icon, category }: BrowseCardProps) => {
       href={link}
       className={styles.card}
       style={{
-        backgroundImage: `linear-gradient(45deg, #000000 0%, rgba(0, 0, 0, 0)50%, #000000 100%), url(${image});`,
+        backgroundImage: `linear-gradient(45deg, #000000 0%, rgba(0, 0, 0, 0)50%, #000000 100%), url(${image})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",

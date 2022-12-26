@@ -9,7 +9,7 @@
 /coverage
 
 # api key
-.env.local
+.env
 
 
 # next.js
