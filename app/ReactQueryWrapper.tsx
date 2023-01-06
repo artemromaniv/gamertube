@@ -8,7 +8,7 @@ type Props = {
 };
 
 const ReactQueryWrapper = ({ children }: Props) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  <QueryClientProvider client={queryClient} contextSharing = {true}>{children}</QueryClientProvider>
 );
 
 export default ReactQueryWrapper;
