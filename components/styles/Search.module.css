@@ -2,14 +2,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .input_field {
+}
+
+.input_field {
     width: 300px;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 2px solid rgb(255, 255, 255, 0.26);
     border-radius: 4px;
     font-size: 16px;
+    background-color: #0D0D11;
+    color: white;
   }
   
   .suggestions_container {
@@ -17,9 +19,9 @@
     margin: 0;
     padding: 0;
     width: 300px;
-    border: 1px solid #ccc;
     border-top: none;
     position: absolute;
+    background-color: #0D0D11;
   }
   
   .suggestion {
