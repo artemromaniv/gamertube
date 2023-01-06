@@ -42,7 +42,7 @@ const NewAndTrending = () => {
   }
 
   return <section className={styles.container}>
-    {/* {GamesList} */}
+    {GamesList}
   </section>;
 };
 
