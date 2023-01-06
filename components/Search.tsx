@@ -3,11 +3,10 @@
 import { useState, useEffect } from "react";
 import { Search as SearchIcon } from "react-feather";
 import { useQuery } from "@tanstack/react-query";
-import styles from "../styles/Search.module.css";
 import { fetchSearchResults } from "../api/fetchSearchResults";
 import {GamesListProps} from '../types/GamesList'
 import Link from "next/link";
-
+import styles from './styles/Search.module.css'
 
 const Search = () => {
   const [query, setQuery] = useState("");
@@ -36,17 +35,20 @@ const Search = () => {
   };
 
   return (
-    <form onSubmit={e => e.preventDefault()}>
+    <form onSubmit={e => e.preventDefault()} className = {styles.container}>
     <input
       type="text"
       value={query}
       onChange={e => setQuery(e.target.value)}
       onKeyDown={handleKeyDown}
+      className = {styles.input_field}
     />
     {isLoading ? (
-      'Loading...'
+      <div className = {styles.suggestions_container}>
+        'Loading...'
+      </div>
     ) : (
-      <ul>
+      <ul className={styles.suggestions_container}>
         {data?.results?.map((result, index: number) => (
           <li
             key={result.id}
@@ -54,7 +56,7 @@ const Search = () => {
               setQuery('')
               setSelectedIndex(null);
             }}
-            className={index === selectedIndex ? 'selected' : ''}
+            className = {styles.suggestion}
           >
             <Link href={result.id.toString()}>
             {result.name}
