@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import { Search as SearchIcon } from "react-feather";
 import { useQuery } from "@tanstack/react-query";
 import { fetchSearchResults } from "../api/fetchSearchResults";
-import {GamesListProps} from '../types/GamesList'
+import { GamesListProps } from "../types/GamesList";
 import Link from "next/link";
-import styles from './styles/Search.module.css'
+import styles from "./styles/Search.module.css";
 
 const Search = () => {
   const [query, setQuery] = useState("");
@@ -14,7 +14,8 @@ const Search = () => {
   const [textInput, setTextInput] = useState("");
   const { data, isLoading } = useQuery<GamesListProps>(
     [query],
-    () => fetchSearchResults(query),{ staleTime: Infinity }
+    () => fetchSearchResults(query),
+    { staleTime: Infinity }
   );
 
   // useEffect hook to trigger the API request when the query value changes
@@ -35,37 +36,35 @@ const Search = () => {
   };
 
   return (
-    <form onSubmit={e => e.preventDefault()} className = {styles.container}>
-    <input
-      type="text"
-      value={query}
-      onChange={e => setQuery(e.target.value)}
-      onKeyDown={handleKeyDown}
-      className = {styles.input_field}
-    />
-    {isLoading ? (
-      <div className = {styles.suggestions_container}>
-        'Loading...'
-      </div>
-    ) : (
-      <ul className={styles.suggestions_container}>
-        {data?.results?.map((result, index: number) => (
-          <li
-            key={result.id}
-            onClick={() => {
-              setQuery('')
-              setSelectedIndex(null);
-            }}
-            className = {styles.suggestion}
-          >
-            <Link href={result.id.toString()}>
-            {result.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    )}
-  </form>
+    <>
+      <form onSubmit={(e) => e.preventDefault()} className={styles.container}>
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleKeyDown}
+          className={styles.input_field}
+        />
+      </form>
+      {isLoading ? (
+        <div className={styles.suggestions_container}>Loading...</div>
+      ) : (
+        <ul className={styles.suggestions_container}>
+          {data?.results?.map((result, index: number) => (
+            <li
+              key={result.id}
+              onClick={() => {
+                setQuery("");
+                setSelectedIndex(null);
+              }}
+              className={styles.suggestion}
+            >
+              <Link href={result.id.toString()}>{result.name}</Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </>
   );
 };
 
