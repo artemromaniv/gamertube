@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "../styles/NewAndTrending.module.css";
+import styles from "./styles/NewAndTrending.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { fetchGamesData } from "../api/fetchGamesData";
 import GameCard from "./GameCard";

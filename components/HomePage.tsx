@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "../styles/Home.module.css";
+import styles from "./styles/Home.module.css";
 
 import Search from "./Search";
 import BrowseSection from "./BrowseSection";

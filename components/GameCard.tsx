@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link"; 
 import { GameInfoProps } from "../types/GameInfoProps";
-import styles from "../styles/NewAndTrending.module.css";
+import styles from "./styles/GameCard.module.css";
 
 
 const GameCard = ({ image,name,genres, id }: GameInfoProps) => {

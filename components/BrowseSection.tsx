@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../styles/Browse.module.css";
+import styles from "./styles/Browse.module.css";
 import { Award } from "react-feather";
 import BrowseCard from "./BrowseCard";
 const BrowseSection = () => {

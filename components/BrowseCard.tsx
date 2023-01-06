@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../styles/Browse.module.css";
+import styles from "./styles/Browse.module.css";
 import { BrowseCardProps } from "../types/BrowseCard";
 
 const BrowseCard = ({ link, image, icon, category }: BrowseCardProps) => {
