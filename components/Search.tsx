@@ -51,6 +51,7 @@ const Search = () => {
           <li
             key={result.id}
             onClick={() => {
+              setQuery('')
               setSelectedIndex(null);
             }}
             className={index === selectedIndex ? 'selected' : ''}
