@@ -1,7 +1,7 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import { GameProps } from "../../types/GameDetails";
-import React from "react";
+import {useEffect} from "react";
 import { fetchGameDetails } from "../../api/fetchGameDetails";
 import Loader from "../../components/Loader";
 type PageProps = {
@@ -10,8 +10,11 @@ type PageProps = {
   };
 };
 
-
 const page = (props: PageProps) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const { data, isLoading } = useQuery<GameProps>(
     [props.params.gameId],
     () => fetchGameDetails(props.params.gameId),
