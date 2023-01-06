@@ -14,22 +14,30 @@ const RootLayout = ({ children }: Props) => {
       <head>
         <meta name="viewport" content="device-width, initial-scale=1.0" />
       </head>
-      <body>
-        <header className="header">
-          <Link href={"/"}>
-            <Image src="/Logo.svg" height={16} width={120} alt="" className="logo" />
-          </Link>
+      <ReactQueryWrapper>
+        <body>
+          <header className="header">
+            <Link href={"/"}>
+              <Image
+                src="/Logo.svg"
+                height={16}
+                width={120}
+                alt=""
+                className="logo"
+              />
+            </Link>
 
-          <nav className="nav_container">
-            <Link href={"/"}>HOME</Link>
-            <Link href={"/reviews"}>REVIEWS</Link>
-            <div className="search_desktop">
-              <Search />
-            </div>
-          </nav>
-        </header>
-        <ReactQueryWrapper>{children}</ReactQueryWrapper>
-      </body>
+            <nav className="nav_container">
+              <Link href={"/"}>HOME</Link>
+              <Link href={"/reviews"}>REVIEWS</Link>
+              <div className="search_desktop">
+                <Search />
+              </div>
+            </nav>
+          </header>
+          {children}
+        </body>
+      </ReactQueryWrapper>
     </html>
   );
 };

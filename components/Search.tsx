@@ -5,20 +5,18 @@ import { Search as SearchIcon } from "react-feather";
 import { useQuery } from "@tanstack/react-query";
 import styles from "../styles/Search.module.css";
 import { fetchSearchResults } from "../api/fetchSearchResults";
+import {GamesListProps} from '../types/GamesList'
+import Link from "next/link";
 
-interface SearchResult {
-  id: string;
-  title: string;
-}
 
 const Search = () => {
-  // const { data, isLoading } = useQuery<SearchResult[]>(
-  //   ['search'],
-  //   () => fetchSearchResults()
-  // );
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [textInput, setTextInput] = useState("");
+  const { data, isLoading } = useQuery<GamesListProps>(
+    [query],
+    () => fetchSearchResults(query),{ staleTime: Infinity }
+  );
 
   // useEffect hook to trigger the API request when the query value changes
   useEffect(() => {
@@ -45,24 +43,25 @@ const Search = () => {
       onChange={e => setQuery(e.target.value)}
       onKeyDown={handleKeyDown}
     />
-    {/* {isLoading ? (
+    {isLoading ? (
       'Loading...'
     ) : (
       <ul>
-        {data?.map((result, index) => (
+        {data?.results?.map((result, index: number) => (
           <li
             key={result.id}
             onClick={() => {
-              setQuery(result.title);
               setSelectedIndex(null);
             }}
             className={index === selectedIndex ? 'selected' : ''}
           >
-            {result.title}
+            <Link href={result.id.toString()}>
+            {result.name}
+            </Link>
           </li>
         ))}
       </ul>
-    )} */}
+    )}
   </form>
   );
 };

@@ -41,7 +41,9 @@ const NewAndTrending = () => {
     return <Loader/>;
   }
 
-  return <section className={styles.container}>{GamesList}</section>;
+  return <section className={styles.container}>
+    {/* {GamesList} */}
+  </section>;
 };
 
 export default NewAndTrending;
