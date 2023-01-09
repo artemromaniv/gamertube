@@ -49,20 +49,20 @@ const Search = () => {
       {isLoading ? (
         <div className={styles.suggestions_container}>Loading...</div>
       ) : (
-        <ul className={styles.suggestions_container}>
+        <div className={styles.suggestions_container}>
           {data?.results?.map((result, index: number) => (
-            <li
-              key={result.id}
-              onClick={() => {
-                setQuery("");
-                setSelectedIndex(null);
-              }}
-              className={styles.suggestion}
-            >
-              <Link href={result.id.toString()}>{result.name}</Link>
-            </li>
+              <Link 
+                href={result.id.toString()}
+                onClick={() => {
+                  setSelectedIndex(null);
+                  setQuery("")
+                }} 
+                key={result.id} 
+                className={styles.suggestion}>
+                  {result.name}
+              </Link>
           ))}
-        </ul>
+        </div>
       )}
     </>
   );
